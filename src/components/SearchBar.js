@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
+import SearchResults from './SearchResults';
 
 //LIMITS RESPONSE SIZE -> &page=1
 
 class SearchBar extends Component {
+	constructor() {
+		super();
+		this.state = {
+			results: [],
+			userInput: '',
+		};
+	}
+
 	handleChange = (event) => {
 		this.setState({ userInput: event.target.value });
 	};
@@ -19,7 +28,8 @@ class SearchBar extends Component {
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
-				this.props.setMovies(json);
+				this.props.getMovies(json);
+				// this.setState({ results: json });
 			});
 	};
 
@@ -32,9 +42,10 @@ class SearchBar extends Component {
 						onChange={this.handleChange}
 						placeholder='enter movie title'
 					/>
-					{/* <Link to={'/'}> */}
-					<button type='submit'>search</button>
-					{/* </Link> */}
+					<button type='submit'>
+						{' '}
+						<div>search</div>
+					</button>
 				</form>
 			</div>
 		);

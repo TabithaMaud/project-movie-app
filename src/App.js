@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Link, Redirect, withRouter } from 'react-router-dom';
 import Home from './components/Home';
 import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
@@ -19,8 +19,9 @@ class App extends Component {
 		};
 	}
 
-	setMovies = (newMovies) => {
-		this.setState({ movies: newMovies });
+	getMovies = (results) => {
+		this.setState({ movies: results });
+		this.props.history.push('/searchresults');
 	};
 
 	render() {
@@ -28,12 +29,20 @@ class App extends Component {
 		return (
 			<div>
 				<main>
-					<Route path='/' component={Home} />
-					<SearchBar movies={this.state.movies} setMovies={this.setMovies} />
+					<Route path='/' exact component={Home} />
+
+					<SearchBar movies={this.state.movies} getMovies={this.getMovies} />
+
 					<Route
 						path='/searchresults'
-						component={SearchResults}
-						movies={this.state.movies}
+						render={(renderProps) => {
+							return (
+								<SearchResults
+									movies={this.state.movies}
+									getMovies={this.getMovies}
+								/>
+							);
+						}}
 					/>
 					<Route path='/:actor' component={ActorFilmsList} />
 					<Route path='/:movie' component={MovieActorsList} />
@@ -43,4 +52,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default withRouter(App);
