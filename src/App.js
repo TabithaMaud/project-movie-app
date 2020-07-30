@@ -6,9 +6,10 @@ import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import ActorFilmsList from './components/ActorFilmsList';
 import MovieActorsList from './components/MovieActorsList';
+import PropTypes from 'prop-types';
 
-const key = process.env.REACT_APP_MOVIE_API_KEY;
-const url = `https://api.themoviedb.org/3/`;
+// const key = process.env.REACT_APP_MOVIE_API_KEY;
+// const url = `https://api.themoviedb.org/3/`;
 
 class App extends Component {
 	constructor() {
@@ -25,27 +26,35 @@ class App extends Component {
 	};
 
 	render() {
-		console.log(this.state.movies);
 		return (
 			<div>
 				<main>
 					<Route path='/' exact component={Home} />
-
 					<SearchBar movies={this.state.movies} getMovies={this.getMovies} />
-
 					<Route
 						path='/searchresults'
-						render={(renderProps) => {
+						render={(routerProps) => {
 							return (
 								<SearchResults
 									movies={this.state.movies}
 									getMovies={this.getMovies}
+									match={routerProps.match}
 								/>
 							);
 						}}
 					/>
-					<Route path='/:actor' component={ActorFilmsList} />
-					<Route path='/:movie' component={MovieActorsList} />
+					<Route path='/actor/:actor' component={ActorFilmsList} />
+					<Route
+						path='/movie/:movie'
+						render={(routerProps) => {
+							return (
+								<MovieActorsList
+									movies={this.state.movies}
+									history={this.props.location.pathname}
+								/>
+							);
+						}}
+					/>
 				</main>
 			</div>
 		);

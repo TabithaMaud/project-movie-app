@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import SearchResults from './SearchResults';
 
 //LIMITS RESPONSE SIZE -> &page=1
 
@@ -8,7 +7,6 @@ class SearchBar extends Component {
 	constructor() {
 		super();
 		this.state = {
-			results: [],
 			userInput: '',
 		};
 	}
@@ -20,6 +18,7 @@ class SearchBar extends Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.getData(this.state.userInput);
+		event.target.reset();
 	};
 
 	getData = (searchString) => {
@@ -29,7 +28,6 @@ class SearchBar extends Component {
 			.then((res) => res.json())
 			.then((json) => {
 				this.props.getMovies(json);
-				// this.setState({ results: json });
 			});
 	};
 
@@ -38,6 +36,7 @@ class SearchBar extends Component {
 			<div>
 				<form onSubmit={this.handleSubmit}>
 					<input
+						required
 						type='text'
 						onChange={this.handleChange}
 						placeholder='enter movie title'

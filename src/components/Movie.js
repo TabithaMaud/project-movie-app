@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 class Movie extends Component {
 	render() {
 		return (
 			<div>
-				<img
-					src={
-						this.props.results !== null
-							? this.props.imageUrl + this.props.results
-							: 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg'
-					}
-					alt={this.props.title}
-				/>
+				<Link
+					to={`/movie/` + this.props.title + `/` + this.props.id}
+					id={this.props.id}>
+					{' '}
+					<img
+						src={
+							this.props.poster !== null
+								? this.props.imageUrl + this.props.poster
+								: 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg'
+						}
+						alt={this.props.title}
+						key={this.props.id}
+					/>
+				</Link>
 				<h1>{this.props.title}</h1>
 				<p>{this.props.date}</p>
 			</div>

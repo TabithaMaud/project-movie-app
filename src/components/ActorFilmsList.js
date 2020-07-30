@@ -3,7 +3,7 @@ import Actor from './Actor';
 
 class ActorFilmsList extends Component {
 	render() {
-		return <div></div>;
+		return <div>ACTORSFILMS</div>;
 	}
 }
 
