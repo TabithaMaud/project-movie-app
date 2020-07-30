@@ -21,14 +21,22 @@ class SearchBar extends Component {
 
 	getData = (searchString) => {
 		const key = process.env.REACT_APP_MOVIE_API_KEY;
-		const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=1`;
-		fetch(url)
-			.then((res) => res.json())
-			.then((json) => {
-				let results = json.results;
-				results.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
-				this.props.getMovies(results);
-			});
+
+		const success = (res) => (res.ok ? res.json() : Promise.resolved({}));
+
+		const page1 = fetch(
+			`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=1`
+		).then(success);
+		const page2 = fetch(
+			`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=2`
+		).then(success);
+		return Promise.all([page1, page2]).then(([page1, page2]) => {
+			const page1Res = page1.results;
+			const page2Res = page2.results;
+			let results = page1Res.concat(page2Res);
+			results.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
+			this.props.getMovies(results);
+		});
 	};
 
 	render() {
