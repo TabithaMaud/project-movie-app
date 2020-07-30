@@ -17,11 +17,16 @@ class App extends Component {
 			movies: [],
 			cast: [],
 		};
+		// this.searchOptions = {
+		// 	key: process.env.REACT_APP_MOVIE_API_KEY,
+		// 	url: `https://api.themoviedb.org/3/`,
+		// };
 	}
 
 	getMovies = (results) => {
 		this.setState({ movies: results });
 		this.props.history.push('/searchresults');
+		console.log(this.state.movies);
 	};
 
 	render() {
@@ -42,7 +47,6 @@ class App extends Component {
 								<SearchResults
 									movies={this.state.movies}
 									getMovies={this.getMovies}
-									// match={routerProps.match}
 								/>
 							);
 						}}

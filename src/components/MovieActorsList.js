@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Movie from './Movie';
 import Actor from './Actor';
+import MovieDetails from './MovieDetails';
 import { Route, Link, Redirect } from 'react-router-dom';
 
 class MovieActorsList extends Component {
@@ -26,16 +26,15 @@ class MovieActorsList extends Component {
 	}
 
 	render() {
-		console.log(this.props.match.params.id);
+		console.log(this.state.movieInfo);
 		return (
 			<main>
-				<Movie
+				<MovieDetails
 					poster={this.state.movieInfo.poster_path}
 					imageUrl={'https://image.tmdb.org/t/p/w200'}
 					title={this.state.movieInfo.title}
 					date={this.state.movieInfo.release_date}
-					key={this.state.movieInfo.id}
-					id={this.state.movieInfo.id}
+					overview={this.state.movieInfo.overview}
 				/>
 				{this.state.cast.slice(0, 19).map((cast) => {
 					return (

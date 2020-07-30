@@ -3,7 +3,6 @@ import { Route, Link, Redirect } from 'react-router-dom';
 
 class Actor extends Component {
 	render() {
-		console.log(this.props.cast);
 		return (
 			<div>
 				<Link to={`/actor/${this.props.cast.id}`}>

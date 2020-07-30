@@ -25,7 +25,9 @@ class SearchBar extends Component {
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
-				this.props.getMovies(json);
+				let results = json.results;
+				results.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
+				this.props.getMovies(results);
 			});
 	};
 

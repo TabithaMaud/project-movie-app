@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import Actor from './Actor';
 import Movie from './Movie';
+import ActorDetails from './ActorDetails';
 
 class ActorFilmsList extends Component {
 	constructor() {
 		super();
 		this.state = {
 			films: [],
+			actorInfo: [],
 		};
 	}
 
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		const key = process.env.REACT_APP_MOVIE_API_KEY;
-		const url = `https://api.themoviedb.org/3/person/${id}/credits?api_key=${key}&page=1`;
+		const url = `https://api.themoviedb.org/3/person/${id}?api_key=${key}&append_to_response=credits&page=1`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
-				this.setState({ films: json.cast });
+				this.setState({ actorInfo: json });
+				this.setState({ films: json.credits.cast });
 			});
 	}
 
 	render() {
-		console.log(this.props.match.params.id);
-		console.log(this.state.films);
+		console.log(this.state.actorInfo);
 		return (
 			<div>
 				<main>
 					{
-						//MUST APPEND TO END OR URL TO GRAB PERSON INFO AND CREDITS
-						/* <Actor
-						cast={cast}
-						key={cast.id}
-						imageUrl={'https://image.tmdb.org/t/p/w200'}
-						match={this.props.match}
-					/> */
+						<ActorDetails
+							info={this.state.actorInfo}
+							imageUrl={'https://image.tmdb.org/t/p/w200'}
+						/>
 					}
 
 					{this.state.films.slice(0, 19).map((film) => {
