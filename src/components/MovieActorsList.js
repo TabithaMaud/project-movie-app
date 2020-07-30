@@ -12,49 +12,38 @@ class MovieActorsList extends Component {
 		};
 	}
 
-	getId = () => {
-		const arrHistory = this.props.history.split('');
-		for (let i = arrHistory.length; i > 0; i--) {
-			if (arrHistory[i] === '/') {
-				return arrHistory.slice(i + 1, arrHistory.length).join('');
-			}
-		}
-	};
-
 	componentDidMount() {
-		this.getId();
+		const id = this.props.match.params.id;
 		const key = process.env.REACT_APP_MOVIE_API_KEY;
-		const url = `https://api.themoviedb.org/3/movie/${this.getId()}?api_key=${key}&append_to_response=credits&page=1`;
+		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=credits&page=1`;
 		// URL GRABS MOVIE INFO AND CAST
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
 				this.setState({ cast: json.credits.cast });
-				this.setState({ movieInfo: json.credits.cast });
-				console.log(json);
+				this.setState({ movieInfo: json });
 			});
 	}
 
-	// HOW TO LIMIT RESULTS IN ARRAY RETURNED FROM API:
-
-	// var film = this.props.data.slice(0, 5).map((item) => {
-	// return <FilmItem key={item.id} film={item} />
-	// });
-
-	// return film;
-
-	// If you do not neet the original array anymore, you could mutate the array with seting length to 5 and iterate then.
-
 	render() {
-		console.log(this.state.cast);
+		console.log(this.props.match.params.id);
 		return (
 			<main>
+				<Movie
+					poster={this.state.movieInfo.poster_path}
+					imageUrl={'https://image.tmdb.org/t/p/w200'}
+					title={this.state.movieInfo.title}
+					date={this.state.movieInfo.release_date}
+					key={this.state.movieInfo.id}
+					id={this.state.movieInfo.id}
+				/>
 				{this.state.cast.slice(0, 19).map((cast) => {
 					return (
 						<Actor
 							cast={cast}
 							key={cast.id}
 							imageUrl={'https://image.tmdb.org/t/p/w200'}
+							match={this.props.match}
 						/>
 					);
 				})}

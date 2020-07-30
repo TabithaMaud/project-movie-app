@@ -5,13 +5,11 @@ class Movie extends Component {
 	render() {
 		return (
 			<div>
-				<Link
-					to={`/movie/` + this.props.title + `/` + this.props.id}
-					id={this.props.id}>
+				<Link to={'/movie/' + this.props.id}>
 					{' '}
 					<img
 						src={
-							this.props.poster !== null
+							this.props.poster
 								? this.props.imageUrl + this.props.poster
 								: 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg'
 						}

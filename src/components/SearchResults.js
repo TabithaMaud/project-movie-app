@@ -14,7 +14,7 @@ class SearchResults extends Component {
 							title={movie.title}
 							date={movie.release_date}
 							key={movie.id}
-							match={this.props.match}
+							// match={this.props.match}
 							id={movie.id}
 						/>
 					);
