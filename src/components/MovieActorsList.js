@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Actor from './Actor';
 import MovieDetails from './MovieDetails';
-import { Route, Link, Redirect } from 'react-router-dom';
 
 class MovieActorsList extends Component {
 	constructor() {
@@ -16,7 +15,6 @@ class MovieActorsList extends Component {
 		const id = this.props.match.params.id;
 		const key = process.env.REACT_APP_MOVIE_API_KEY;
 		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&append_to_response=credits&page=1`;
-		// URL GRABS MOVIE INFO AND CAST
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {

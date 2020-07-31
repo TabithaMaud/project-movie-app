@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import Movie from './Movie';
-import { Route, Link, Redirect } from 'react-router-dom';
+import './SearchResults.css';
 
 class SearchResults extends Component {
-	// confirmCast = (movies) => {
-	// 	this.props.movies.results.filter(movie => movie.
-	// }
-
 	render() {
 		return (
-			<main>
+			<main className='searchResults'>
 				{this.props.movies.map((movie) => {
 					if (movie.poster_path && movie.overview && movie.popularity > 3) {
 						return (

@@ -19,8 +19,10 @@ class ActorFilmsList extends Component {
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
+				let filmList = json.credits.cast;
+				filmList.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
 				this.setState({ actorInfo: json });
-				this.setState({ films: json.credits.cast });
+				this.setState({ films: filmList });
 			});
 	}
 

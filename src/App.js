@@ -6,6 +6,7 @@ import SearchResults from './components/SearchResults';
 import SearchBar from './components/SearchBar';
 import ActorFilmsList from './components/ActorFilmsList';
 import MovieActorsList from './components/MovieActorsList';
+import './components/SearchResults.css';
 
 // const key = process.env.REACT_APP_MOVIE_API_KEY;
 // const url = `https://api.themoviedb.org/3/`;
@@ -16,6 +17,7 @@ class App extends Component {
 		this.state = {
 			movies: [],
 			cast: [],
+			pageId: 'home',
 		};
 		// this.searchOptions = {
 		// 	key: process.env.REACT_APP_MOVIE_API_KEY,
@@ -23,23 +25,38 @@ class App extends Component {
 		// };
 	}
 
+	updateId = (newClass) => {
+		this.setState({ pageId: newClass });
+	};
+
 	getMovies = (results) => {
 		this.setState({ movies: results });
 		this.props.history.push('/searchresults');
-		console.log(this.state.movies);
+		this.setState({ pageId: '' });
 	};
 
 	render() {
 		return (
-			<div>
+			<div id={this.state.pageId} className={'masterDiv'}>
+				<Link to='/'>
+					<p className='homeLink'>HOME</p>
+				</Link>
 				<nav>
-					<Link to='/'>
-						<p>HOME</p>
-					</Link>
+					{' '}
+					<Route
+						path='/'
+						exact
+						render={() => {
+							return (
+								<Home pageId={this.state.pageId} updateId={this.updateId} />
+							);
+						}}
+					/>
+					<div className={'searchBar'}>
+						<SearchBar movies={this.state.movies} getMovies={this.getMovies} />
+					</div>
 				</nav>
 				<main>
-					<Route path='/' exact component={Home} />
-					<SearchBar movies={this.state.movies} getMovies={this.getMovies} />
 					<Route
 						path='/searchresults'
 						render={(routerProps) => {
