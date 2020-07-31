@@ -25,67 +25,82 @@ class App extends Component {
 		// };
 	}
 
-	updateId = (newClass) => {
-		this.setState({ pageId: newClass });
-	};
+	//WHEN RETURNING TO HOME SCREEN RESET ID TO HOME
+	// updateId = (newClass) => {
+	// 	this.setState({ pageId: newClass });
+	// };
 
 	getMovies = (results) => {
 		this.setState({ movies: results });
 		this.props.history.push('/searchresults');
-		this.setState({ pageId: '' });
 	};
 
 	render() {
+		console.log(this.props);
 		return (
-			<div id={this.state.pageId} className={'masterDiv'}>
-				<Link to='/'>
-					<p className='homeLink'>HOME</p>
-				</Link>
-				<nav>
-					{' '}
+			<div className={'masterDiv'}>
+				<header>
+					<nav>
+						<Link to='/'>
+							<p className='homeLink'>MC</p>
+						</Link>
+						{this.props.location.pathname === '/searchresults' && (
+							<div className={'searchBar'}>
+								<SearchBar
+									movies={this.state.movies}
+									getMovies={this.getMovies}
+								/>
+							</div>
+						)}
+					</nav>
+				</header>
+				<main>
 					<Route
 						path='/'
 						exact
 						render={() => {
-							return (
-								<Home pageId={this.state.pageId} updateId={this.updateId} />
-							);
+							return <Home pageId={this.state.pageId} />;
 						}}
 					/>
-					<div className={'searchBar'}>
-						<SearchBar movies={this.state.movies} getMovies={this.getMovies} />
+					{this.props.location.pathname === '/' && (
+						<div className={'searchBar'}>
+							<SearchBar
+								movies={this.state.movies}
+								getMovies={this.getMovies}
+							/>
+						</div>
+					)}
+					<div className='results'>
+						<Route
+							path='/searchresults'
+							render={(routerProps) => {
+								return (
+									<SearchResults
+										movies={this.state.movies}
+										getMovies={this.getMovies}
+									/>
+								);
+							}}
+						/>
+						<Route
+							path='/movie/:id'
+							render={(routerProps) => {
+								return (
+									<MovieActorsList
+										movies={this.state.movies}
+										match={routerProps.match}
+										history={this.props.location.pathname}
+									/>
+								);
+							}}
+						/>
+						<Route
+							path='/actor/:id'
+							render={(routerProps) => {
+								return <ActorFilmsList match={routerProps.match} />;
+							}}
+						/>
 					</div>
-				</nav>
-				<main>
-					<Route
-						path='/searchresults'
-						render={(routerProps) => {
-							return (
-								<SearchResults
-									movies={this.state.movies}
-									getMovies={this.getMovies}
-								/>
-							);
-						}}
-					/>
-					<Route
-						path='/movie/:id'
-						render={(routerProps) => {
-							return (
-								<MovieActorsList
-									movies={this.state.movies}
-									match={routerProps.match}
-									history={this.props.location.pathname}
-								/>
-							);
-						}}
-					/>
-					<Route
-						path='/actor/:id'
-						render={(routerProps) => {
-							return <ActorFilmsList match={routerProps.match} />;
-						}}
-					/>
 				</main>
 			</div>
 		);

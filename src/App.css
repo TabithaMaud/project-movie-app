@@ -5,70 +5,74 @@ body {
 
 /* Landing Page */
 
-#home {
+.masterDiv {
 	display: grid;
-	grid-template-columns: 75px 1fr;
 	grid-template-rows: 75px 1fr;
-}
-
-#home #homeLink {
-	grid-column: 1;
-	grid-row: 1;
-}
-
-#home nav {
-	grid-column: 1 / span 2;
-	grid-row: 2 / span 1;
-
-	/* margin-left: -75px;
-	margin-top: -35px;*/
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	height: 100vh;
 }
 
-#home nav h1 {
+.masterDiv .homeLink {
+	text-align: left;
+	padding: 30px;
+	font-family: 'Playfair Display', serif;
+	font-style: none;
+}
+
+.masterDiv nav {
+	display: flex;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.searchbar {
+	padding: 50px;
+}
+
+.masterDiv h1 {
 	font-family: 'Playfair Display', serif;
 	font-size: 8em;
 	font-weight: 700;
 	margin-bottom: 0;
 }
 
-#home nav p {
-	margin-bottom: 70px;
+.masterDiv p {
+	margin-bottom: 20px;
 	margin-top: 0;
 	font-size: 1.5em;
 }
 
-/*********************************************/
+.results {
+	margin-top: 50px;
+}
 
-/* Master Layout */
-
-.masterDiv nav {
+.movieDetails {
 	display: grid;
-	grid-template-rows: 75px 1fr;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr, 3fr;
+	max-width: 800px;
+	margin-right: 0;
 }
 
-.masterDiv .homeLink {
-	grid-row: 1 / span 1;
-	grid-column: 1 / span 1;
-	width: 75px;
-	color: red;
+.movieOverview {
+	grid-column: 2;
+	text-align: left;
+	padding-left: 30px;
 }
-/* 
-nav p {
-	grid-row: 1;
-	grid-column: 1;
-	width: 75px;
+
+.movieOverview h1 {
 	margin: 0;
-	color: red;
-	display: inline-block;
-} */
+	font-size: 3em;
+}
 
-.masterDiv nav .searchBar {
-	/* margin-top: -35px; */
-	grid-row: 1;
-	grid-column: 1 / span 2;
+.movieOverview p {
+	font-size: 1em;
+}
+
+@media (min-width: 800px) {
+	.searchResults,
+	.movieActorsList,
+	.actorMoviesList {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 1300px;
+	}
 }

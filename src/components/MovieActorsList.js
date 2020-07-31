@@ -34,16 +34,18 @@ class MovieActorsList extends Component {
 					date={this.state.movieInfo.release_date}
 					overview={this.state.movieInfo.overview}
 				/>
-				{this.state.cast.slice(0, 19).map((cast) => {
-					return (
-						<Actor
-							cast={cast}
-							key={cast.id}
-							imageUrl={'https://image.tmdb.org/t/p/w200'}
-							match={this.props.match}
-						/>
-					);
-				})}
+				<div className='movieActorsList'>
+					{this.state.cast.slice(0, 19).map((cast) => {
+						return (
+							<Actor
+								cast={cast}
+								key={cast.id}
+								imageUrl={'https://image.tmdb.org/t/p/w200'}
+								match={this.props.match}
+							/>
+						);
+					})}
+				</div>
 			</main>
 		);
 	}

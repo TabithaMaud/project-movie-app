@@ -29,15 +29,14 @@ class ActorFilmsList extends Component {
 	render() {
 		console.log(this.state.actorInfo);
 		return (
-			<div>
-				<main>
-					{
-						<ActorDetails
-							info={this.state.actorInfo}
-							imageUrl={'https://image.tmdb.org/t/p/w200'}
-						/>
-					}
-
+			<main>
+				{
+					<ActorDetails
+						info={this.state.actorInfo}
+						imageUrl={'https://image.tmdb.org/t/p/w200'}
+					/>
+				}
+				<div className='actorMoviesList'>
 					{this.state.films.slice(0, 19).map((film) => {
 						return (
 							<Movie
@@ -50,8 +49,8 @@ class ActorFilmsList extends Component {
 							/>
 						);
 					})}
-				</main>
-			</div>
+				</div>
+			</main>
 		);
 	}
 }

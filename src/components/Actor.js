@@ -16,7 +16,7 @@ class Actor extends Component {
 						key={this.props.cast.id}
 					/>
 				</Link>
-				<h1>{this.props.cast.name}</h1>
+				<h2>{this.props.cast.name}</h2>
 				<p>{`as ${this.props.cast.character}`}</p>
 			</div>
 		);

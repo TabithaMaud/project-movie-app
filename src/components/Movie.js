@@ -4,7 +4,7 @@ import { Route, Link, Redirect } from 'react-router-dom';
 class Movie extends Component {
 	render() {
 		return (
-			<div>
+			<div className='listMovie'>
 				<Link to={'/movie/' + this.props.id}>
 					{' '}
 					<img
@@ -17,7 +17,7 @@ class Movie extends Component {
 						key={this.props.id}
 					/>
 				</Link>
-				<h1>{this.props.title}</h1>
+				<h2>{this.props.title}</h2>
 				<p>{this.props.date}</p>
 			</div>
 		);

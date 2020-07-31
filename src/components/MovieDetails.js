@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 
 class MovieDetails extends Component {
 	render() {
-		//MOVIE POSTER
-		//TITLE
-		//SUMMARY
 		return (
-			<section>
+			<section className='movieDetails'>
 				<img
 					src={
 						this.props.poster
@@ -16,7 +13,7 @@ class MovieDetails extends Component {
 					alt={this.props.title}
 					key={this.props.id}
 				/>
-				<div>
+				<div className='movieOverview'>
 					<h1>{this.props.title}</h1>
 					<p>{this.props.date}</p>
 					<p>{this.props.overview}</p>
