@@ -1,0 +1,51 @@
+.movieActorsList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-gap: 3rem;
+	align-items: end;
+}
+
+.movieActorsList img {
+	width: 100%;
+}
+
+.movieDetails {
+	display: grid;
+	text-align: center;
+	padding: 20px;
+}
+
+.movieDetails img {
+	margin: 0 auto;
+}
+
+.movieOverview {
+	text-align: center;
+}
+
+.movieOverview h1 {
+	margin: 0;
+	font-size: 3em;
+}
+
+.movieOverview p {
+	font-size: 1em;
+}
+
+@media (min-width: 800px) {
+	.movieDetails {
+		margin: 0 auto 60px auto;
+		grid-template-columns: 1fr, 3fr;
+		max-width: 720px;
+	}
+
+	.movieActorsList {
+		grid-template-columns: repeat(auto-fill, minmax(220px, 0.5fr));
+	}
+
+	.movieOverview {
+		grid-column: 2;
+		text-align: left;
+		padding-left: 30px;
+	}
+}

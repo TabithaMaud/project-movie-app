@@ -17,8 +17,10 @@ class Movie extends Component {
 						key={this.props.id}
 					/>
 				</Link>
-				<h2>{this.props.title}</h2>
-				<p>{this.props.date}</p>
+				<div className='resultInfo'>
+					<h2>{this.props.title}</h2>
+					<p>{this.props.date}</p>
+				</div>
 			</div>
 		);
 	}

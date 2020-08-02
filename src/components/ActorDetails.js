@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 
 class ActorDetails extends Component {
 	render() {
-		//IMAGE
-		//NAME
-		//BIRTHDAY AND PLACE
-		//BIO
 		return (
-			<div>
+			<section className='movieDetails'>
 				<img
 					src={
 						this.props.info.profile_path
@@ -16,10 +12,12 @@ class ActorDetails extends Component {
 					}
 					alt={this.props.info.name}
 				/>
-				<h2>{this.props.info.name}</h2>
-				<p>{`Born ${this.props.info.birthday} in ${this.props.info.place_of_birth}`}</p>
-				<p>{this.props.info.biography}</p>
-			</div>
+				<div className='actorOverview'>
+					<h1>{this.props.info.name}</h1>
+					<p>{`Born ${this.props.info.birthday} in ${this.props.info.place_of_birth}`}</p>
+					<p>{this.props.info.biography}</p>
+				</div>
+			</section>
 		);
 	}
 }

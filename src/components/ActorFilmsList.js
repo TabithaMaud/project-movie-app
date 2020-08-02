@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Actor from './Actor';
 import Movie from './Movie';
 import ActorDetails from './ActorDetails';
 
@@ -21,6 +20,10 @@ class ActorFilmsList extends Component {
 			.then((json) => {
 				let filmList = json.credits.cast;
 				filmList.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
+				// for (let i = 0; i > filmList.length; i++) {
+				// 	filmList[i].date = filmList[i].release_date.slice(0, 4);
+				// }
+
 				this.setState({ actorInfo: json });
 				this.setState({ films: filmList });
 			});
