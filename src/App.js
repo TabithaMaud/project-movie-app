@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, Redirect, withRouter } from 'react-router-dom';
 import Home from './components/Home';
+
 import SearchResults from './components/SearchResults';
 import './components/SearchResults.css';
+
 import SearchBar from './components/SearchBar';
 
 import ActorFilmsList from './components/ActorFilmsList';
@@ -12,16 +14,13 @@ import './components/ActorFilmsList.css';
 import MovieActorsList from './components/MovieActorsList';
 import './components/MovieActorsList.css';
 
-// const key = process.env.REACT_APP_MOVIE_API_KEY;
-// const url = `https://api.themoviedb.org/3/`;
-
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
 			movies: [],
 			cast: [],
-			pageId: 'home',
+			userInput: '',
 		};
 		// this.searchOptions = {
 		// 	key: process.env.REACT_APP_MOVIE_API_KEY,
@@ -32,6 +31,10 @@ class App extends Component {
 	getMovies = (results) => {
 		this.setState({ movies: results });
 		this.props.history.push('/searchresults');
+	};
+
+	getUserInput = (input) => {
+		this.setState({ userInput: input });
 	};
 
 	render() {
@@ -48,6 +51,7 @@ class App extends Component {
 								<SearchBar
 									movies={this.state.movies}
 									getMovies={this.getMovies}
+									getUserInput={this.getUserInput}
 								/>
 							</div>
 						)}
@@ -66,6 +70,7 @@ class App extends Component {
 							<SearchBar
 								movies={this.state.movies}
 								getMovies={this.getMovies}
+								getUserInput={this.getUserInput}
 							/>
 						</div>
 					)}
@@ -77,6 +82,7 @@ class App extends Component {
 									<SearchResults
 										movies={this.state.movies}
 										getMovies={this.getMovies}
+										userInput={this.state.userInput}
 									/>
 								);
 							}}

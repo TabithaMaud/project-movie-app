@@ -18,6 +18,9 @@ class MovieActorsList extends Component {
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
+				if (json.release_date) {
+					json.release_date = json.release_date.slice(0, 4);
+				}
 				this.setState({ cast: json.credits.cast });
 				this.setState({ movieInfo: json });
 			});

@@ -16,7 +16,7 @@ class MovieDetails extends Component {
 				<div className='movieOverview'>
 					<h1>{this.props.title}</h1>
 					<p>{this.props.date}</p>
-					<p>{this.props.overview}</p>
+					<div>{this.props.overview}</div>
 				</div>
 			</section>
 		);

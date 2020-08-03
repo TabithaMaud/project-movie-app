@@ -17,6 +17,7 @@ class SearchBar extends Component {
 		event.preventDefault();
 		this.getData(this.state.userInput);
 		event.target.reset();
+		this.props.getUserInput(this.state.userInput);
 	};
 
 	getData = (searchString) => {

@@ -4,7 +4,8 @@ import { Route, Link, Redirect } from 'react-router-dom';
 class Actor extends Component {
 	render() {
 		return (
-			<div>
+			<div className='actorResult'>
+				{!this.props.cast && <h2>Sorry - No Cast Available</h2>}
 				<Link to={`/actor/${this.props.cast.id}`}>
 					<img
 						src={

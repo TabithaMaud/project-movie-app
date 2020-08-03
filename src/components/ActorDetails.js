@@ -15,7 +15,17 @@ class ActorDetails extends Component {
 				<div className='actorOverview'>
 					<h1>{this.props.info.name}</h1>
 					<p>{`Born ${this.props.info.birthday} in ${this.props.info.place_of_birth}`}</p>
-					<p>{this.props.info.biography}</p>
+					{/* {this.props.info.biography.length > 670 && ( */}
+					<div class='panel-wrapper'>
+						<a href='#show' className='show btn' id='show'>
+							Read More
+						</a>
+						<a href='#hide' className='hide btn' id='hide'>
+							Show Less
+						</a>
+						<div className='panel'>{this.props.info.biography}</div>
+					</div>
+					{/* )} */}
 				</div>
 			</section>
 		);

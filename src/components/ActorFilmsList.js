@@ -18,11 +18,21 @@ class ActorFilmsList extends Component {
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
+				// console.log(json);
+				const date = new Date(json.birthday);
+				json.birthday = date.toLocaleString('default', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				});
 				let filmList = json.credits.cast;
-				filmList.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
-				// for (let i = 0; i > filmList.length; i++) {
-				// 	filmList[i].date = filmList[i].release_date.slice(0, 4);
-				// }
+
+				filmList.map((film) => {
+					if (film.release_date) {
+						return (film.release_date = film.release_date.slice(0, 4));
+					}
+				});
+				filmList.sort((a, b) => (a.release_date < b.release_date ? 1 : -1));
 
 				this.setState({ actorInfo: json });
 				this.setState({ films: filmList });
@@ -30,7 +40,6 @@ class ActorFilmsList extends Component {
 	}
 
 	render() {
-		console.log(this.state.actorInfo);
 		return (
 			<main>
 				{
@@ -41,6 +50,10 @@ class ActorFilmsList extends Component {
 				}
 				<div className='actorMoviesList'>
 					{this.state.films.slice(0, 19).map((film) => {
+						// if (film.release_date) {
+						// 	film.release_date = film.release_date.slice(0, 4);
+						// }
+
 						return (
 							<Movie
 								poster={film.poster_path}
