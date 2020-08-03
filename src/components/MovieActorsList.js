@@ -24,6 +24,8 @@ class MovieActorsList extends Component {
 				this.setState({ cast: json.credits.cast });
 				this.setState({ movieInfo: json });
 			});
+
+		window.scrollTo(0, 0);
 	}
 
 	render() {
@@ -38,7 +40,7 @@ class MovieActorsList extends Component {
 					overview={this.state.movieInfo.overview}
 				/>
 				<div className='movieActorsList'>
-					{this.state.cast.slice(0, 19).map((cast) => {
+					{this.state.cast.map((cast) => {
 						return (
 							<Actor
 								cast={cast}

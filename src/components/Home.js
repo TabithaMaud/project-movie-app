@@ -5,7 +5,7 @@ class Home extends Component {
 		return (
 			<div>
 				<h1 className='landingTitle'>Movie Creds</h1>
-				<p class='landingSubTitle'>"... wait, what else were they in?"</p>
+				<p className='landingSubTitle'>"... wait, what else were they in?"</p>
 			</div>
 		);
 	}

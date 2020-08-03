@@ -14,11 +14,11 @@ class ActorFilmsList extends Component {
 	componentDidMount() {
 		const id = this.props.match.params.id;
 		const key = process.env.REACT_APP_MOVIE_API_KEY;
+
 		const url = `https://api.themoviedb.org/3/person/${id}?api_key=${key}&append_to_response=credits&page=1`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((json) => {
-				// console.log(json);
 				const date = new Date(json.birthday);
 				json.birthday = date.toLocaleString('default', {
 					year: 'numeric',
@@ -26,17 +26,16 @@ class ActorFilmsList extends Component {
 					day: 'numeric',
 				});
 				let filmList = json.credits.cast;
-
 				filmList.map((film) => {
 					if (film.release_date) {
 						return (film.release_date = film.release_date.slice(0, 4));
 					}
 				});
 				filmList.sort((a, b) => (a.release_date < b.release_date ? 1 : -1));
-
 				this.setState({ actorInfo: json });
 				this.setState({ films: filmList });
 			});
+		window.scrollTo(0, 0);
 	}
 
 	render() {
@@ -49,11 +48,7 @@ class ActorFilmsList extends Component {
 					/>
 				}
 				<div className='actorMoviesList'>
-					{this.state.films.slice(0, 19).map((film) => {
-						// if (film.release_date) {
-						// 	film.release_date = film.release_date.slice(0, 4);
-						// }
-
+					{this.state.films.map((film) => {
 						return (
 							<Movie
 								poster={film.poster_path}

@@ -3,6 +3,9 @@ import Movie from './Movie';
 import './SearchResults.css';
 
 class SearchResults extends Component {
+	componentDidMount() {
+		window.scrollTo(0, 0);
+	}
 	render() {
 		return (
 			<div>

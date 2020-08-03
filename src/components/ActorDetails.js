@@ -16,7 +16,7 @@ class ActorDetails extends Component {
 					<h1>{this.props.info.name}</h1>
 					<p>{`Born ${this.props.info.birthday} in ${this.props.info.place_of_birth}`}</p>
 					{/* {this.props.info.biography.length > 670 && ( */}
-					<div class='panel-wrapper'>
+					<div className='panel-wrapper'>
 						<a href='#show' className='show btn' id='show'>
 							Read More
 						</a>

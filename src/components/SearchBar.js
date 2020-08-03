@@ -31,8 +31,13 @@ class SearchBar extends Component {
 		const page2 = fetch(
 			`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=2`
 		).then(success);
-		return Promise.all([page1, page2]).then(([page1, page2]) => {
+		const page3 = fetch(
+			`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=3`
+		).then(success);
+
+		return Promise.all([page1, page2, page3]).then(([page1, page2, page3]) => {
 			let results = page1.results.concat(page2.results);
+			results = results.concat(page3.results);
 			results.sort((a, b) => (a.popularity < b.popularity ? 1 : -1));
 			this.props.getMovies(results);
 		});

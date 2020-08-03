@@ -19,7 +19,9 @@ class Actor extends Component {
 				</Link>
 				<div className='resultInfo'>
 					<h2>{this.props.cast.name}</h2>
-					<p>{`as ${this.props.cast.character}`}</p>
+					{this.props.cast.character && (
+						<p>{`as ${this.props.cast.character}`}</p>
+					)}
 				</div>
 			</div>
 		);
