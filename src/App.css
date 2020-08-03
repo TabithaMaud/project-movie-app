@@ -53,7 +53,7 @@ p {
 @media (min-width: 800px) {
 	.h1Title {
 		text-align: left;
-		margin: 33px;
+		margin: 33px 33px 33px 0;
 	}
 
 	/* .masterDiv h1 {
