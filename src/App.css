@@ -53,7 +53,6 @@ p {
 
 .landingSubTitle {
 	margin-bottom: 70px;
-	/* margin-top: 10px; */
 	font-size: 1.5em;
 	color: var(--mainFocusColor);
 }
@@ -70,6 +69,7 @@ input {
 }
 
 button {
+	margin-top: 20px;
 	color: white;
 	width: 169px;
 	height: 40px;
@@ -78,14 +78,6 @@ button {
 	border-style: none;
 	cursor: pointer;
 }
-
-/* .background {
-	position: absolute;
-	z-index: -1;
-	height: 100vh;
-
-	background-color: lightgray;
-} */
 
 .home {
 	position: absolute;
@@ -101,6 +93,10 @@ button {
 	.h1Title {
 		text-align: left;
 		margin: 33px 33px 33px 30px;
+	}
+
+	button {
+		margin-top: 0;
 	}
 }
 
