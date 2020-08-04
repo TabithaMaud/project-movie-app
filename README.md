@@ -8,6 +8,12 @@ Movie Creds is a movie app that focuses on one very common question, what else w
 
 The emphasis on this app is to focus on finding out the cast and what other movies the actor was in. Unlike most movie websites and apps this will be focusing on only one main problem and creating a powerful simple solution.
 
+![image](https://media.git.generalassemb.ly/user/28719/files/71165880-d5dd-11ea-8c5a-422d5b064d19)
+
+![image](https://media.git.generalassemb.ly/user/28719/files/77f19b00-d5de-11ea-98b6-c217190128f2)
+
+![image](https://media.git.generalassemb.ly/user/28719/files/be46fa00-d5de-11ea-89c4-db895cbef53d)
+
 ## User Stories
 
 ### MVP User Stories
@@ -33,3 +39,11 @@ The emphasis on this app is to focus on finding out the cast and what other movi
 ## API Attribution:
 
 [The Movie Database API](https://developers.themoviedb.org/3)
+
+## Getting Started:
+
+Check it out! Fork, clone and run the application.
+
+## Contribution Guidelines:
+
+To contribute please make a pull request to be reviewed.
