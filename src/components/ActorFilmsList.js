@@ -34,6 +34,7 @@ class ActorFilmsList extends Component {
 				filmList.sort((a, b) => (a.release_date < b.release_date ? 1 : -1));
 				this.setState({ actorInfo: json });
 				this.setState({ films: filmList });
+				console.log(filmList);
 			});
 		window.scrollTo(0, 0);
 	}
@@ -57,6 +58,7 @@ class ActorFilmsList extends Component {
 								date={film.release_date}
 								key={film.id}
 								id={film.id}
+								character={film.character}
 							/>
 						);
 					})}

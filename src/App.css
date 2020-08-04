@@ -70,6 +70,7 @@ input {
 	outline: none;
 	padding-left: 20px;
 	border-style: none;
+	max-width: 80vw;
 }
 
 button {

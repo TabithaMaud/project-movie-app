@@ -44,7 +44,7 @@ class App extends Component {
 						<Link to='/'>
 							<img className='homeLink' src={logo} />
 						</Link>
-						{this.props.location.pathname === '/searchresults' && (
+						{this.props.location.pathname !== '/' && (
 							<div className='searchBarLanding'>
 								<SearchBar
 									movies={this.state.movies}
