@@ -82,6 +82,10 @@
 	transition: max-height 0.5s ease;
 }
 
+h2.year {
+	font-weight: 500;
+}
+
 @media (min-width: 800px) {
 	.actorDetails {
 		margin: 0 auto 60px auto;

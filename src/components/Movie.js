@@ -18,7 +18,10 @@ class Movie extends Component {
 					/>
 				</Link>
 				<div className='resultInfo'>
-					<h2>{this.props.title}</h2>
+					<h2>
+						{this.props.title}{' '}
+						{this.props.character && <span>{this.props.date}</span>}
+					</h2>
 					{!this.props.character && <p>{this.props.date}</p>}
 					{this.props.character && <p>As {this.props.character}</p>}
 				</div>

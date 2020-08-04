@@ -7,7 +7,6 @@
 body {
 	text-align: center;
 	font-family: 'Nunito Sans', sans-serif;
-	/* padding: var(--padding); */
 }
 
 p {
@@ -94,7 +93,7 @@ button {
 	right: 0;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 760px) {
 	.searchBarLanding {
 		display: inline;
 	}
@@ -108,10 +107,3 @@ button {
 		margin-top: 0;
 	}
 }
-
-/* .home {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-top: -150px;
-} */
