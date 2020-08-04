@@ -14,6 +14,8 @@ import './components/ActorFilmsList.css';
 import MovieActorsList from './components/MovieActorsList';
 import './components/MovieActorsList.css';
 
+import logo from './logo.png';
+
 class App extends Component {
 	constructor() {
 		super();
@@ -22,10 +24,6 @@ class App extends Component {
 			cast: [],
 			userInput: '',
 		};
-		// this.searchOptions = {
-		// 	key: process.env.REACT_APP_MOVIE_API_KEY,
-		// 	url: `https://api.themoviedb.org/3/`,
-		// };
 	}
 
 	getMovies = (results) => {
@@ -44,10 +42,10 @@ class App extends Component {
 				<header>
 					<nav>
 						<Link to='/'>
-							<p className='homeLink'>MC</p>
+							<img className='homeLink' src={logo} />
 						</Link>
 						{this.props.location.pathname === '/searchresults' && (
-							<div className={'searchBarLanding'}>
+							<div className='searchBarLanding'>
 								<SearchBar
 									movies={this.state.movies}
 									getMovies={this.getMovies}
@@ -66,7 +64,7 @@ class App extends Component {
 						}}
 					/>
 					{this.props.location.pathname === '/' && (
-						<div className={'searchBar'}>
+						<div className='searchBar'>
 							<SearchBar
 								movies={this.state.movies}
 								getMovies={this.getMovies}
@@ -74,6 +72,9 @@ class App extends Component {
 							/>
 						</div>
 					)}
+
+					{this.props.location.pathname === '/' && <div className='home'></div>}
+
 					<div className='results'>
 						<Route
 							path='/searchresults'

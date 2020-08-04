@@ -55,7 +55,7 @@ class SearchBar extends Component {
 					/>
 					<button type='submit'>
 						{' '}
-						<div>search</div>
+						<div>SEARCH</div>
 					</button>
 				</form>
 			</div>

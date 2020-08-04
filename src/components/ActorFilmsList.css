@@ -3,6 +3,7 @@
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 3rem;
 	align-items: end;
+	padding: var(--padding);
 }
 
 .actorMoviesList img {
@@ -22,12 +23,8 @@
 .actorOverview h1 {
 	font-size: 2em;
 	margin: 0 0 0 auto;
+	color: var(--mainFocusColor);
 }
-
-/* .movieDetails img {
-	display: flex;
-	justify-content: right;
-} */
 
 .actorOverview p {
 	margin: 0;

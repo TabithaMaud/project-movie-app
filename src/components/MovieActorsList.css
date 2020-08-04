@@ -3,6 +3,7 @@
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 3rem;
 	align-items: end;
+	padding: 0 var(--padding) var(--padding) var(--padding);
 }
 
 .movieActorsList img {
@@ -26,6 +27,7 @@
 .movieOverview h1 {
 	margin: 0;
 	font-size: 2em;
+	color: var(--mainFocusColor);
 }
 
 .movieOverview p {
@@ -39,7 +41,7 @@
 
 .actorResult {
 	padding: 10px;
-	border: 1px solid lightgray;
+	border: 1px solid var(--mainFocusColor);
 	border-radius: 3px;
 }
 

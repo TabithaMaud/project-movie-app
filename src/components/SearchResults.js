@@ -9,7 +9,9 @@ class SearchResults extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className='h1Title'>Results for "{this.props.userInput}"</h1>
+				<h1 className='h1Title'>
+					Results for <span>"{this.props.userInput}"</span>
+				</h1>
 				<main className='searchResults'>
 					{this.props.movies.map((movie) => {
 						if (movie.poster_path && movie.overview && movie.popularity > 3) {

@@ -1,11 +1,13 @@
 :root {
 	--padding: 30px;
+	--mainBgColor: #1d1d1d;
+	--mainFocusColor: #aa8768;
 }
 
 body {
 	text-align: center;
 	font-family: 'Nunito Sans', sans-serif;
-	padding: var(--padding);
+	/* padding: var(--padding); */
 }
 
 p {
@@ -25,42 +27,86 @@ p {
 	font-family: 'Playfair Display', serif;
 	font-style: none;
 	margin: 0;
+	height: 30px;
 }
 
 .masterDiv nav {
+	padding: 18px var(--padding) 15px var(--padding);
 	display: flex;
 	align-content: center;
 	justify-content: space-between;
+	background-color: var(--mainBgColor);
 }
 
 .landingTitle {
 	line-height: 130px;
 	font-size: 8em;
 	font-weight: 700;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 
 .masterDiv h1 {
 	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+	color: var(--mainFocusColor);
 }
 
 .landingSubTitle {
-	margin-bottom: 20px;
-	margin-top: 20;
+	margin-bottom: 70px;
+	/* margin-top: 10px; */
 	font-size: 1.5em;
+	color: var(--mainFocusColor);
+}
+
+input {
+	color: white;
+	background-color: #2d2d2d;
+	height: 31px;
+	width: 400px;
+	padding: 5px;
+	outline: none;
+	padding-left: 20px;
+	border-style: none;
+}
+
+button {
+	color: white;
+	width: 169px;
+	height: 40px;
+	background-color: var(--mainFocusColor);
+	outline: none;
+	border-style: none;
+	cursor: pointer;
+}
+
+/* .background {
+	position: absolute;
+	z-index: -1;
+	height: 100vh;
+
+	background-color: lightgray;
+} */
+
+.home {
+	position: absolute;
+	background-color: var(--mainBgColor);
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 @media (min-width: 800px) {
 	.h1Title {
 		text-align: left;
-		margin: 33px 33px 33px 0;
-	}
-
-	/* .masterDiv h1 {
-		margin-bottom: 0px;
-	} */
-
-	body {
-		padding: 30px 60px 30px 60px;
+		margin: 33px 33px 33px 30px;
 	}
 }
+
+/* .home {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: -150px;
+} */
