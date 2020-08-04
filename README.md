@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Movie Creds
 
-## Available Scripts
+An App created with React and CSS
 
-In the project directory, you can run:
+### Description
 
-### `npm start`
+Movie Creds is a movie app that focuses on one very common question, what else was an actor in? The app allows users to search by Movie to pull up the Movie's cast. On the cast screen they're able to click on an actor to pull up their full filmography (the movies they have been in). Clicking on the movie from their filmography list will bring up the full cast of that movie.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The emphasis on this app is to focus on finding out the cast and what other movies the actor was in. Unlike most movie websites and apps this will be focusing on only one main problem and creating a powerful simple solution.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## User Stories
 
-### `npm test`
+### MVP User Stories
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- As a user, I want to be able to search for a movie and see the cast.
 
-### `npm run build`
+- As a user, I would like to see images of my movie search results to make sure I make the right selection.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a user, I want to see the films an actor was in by clicking on the actor within the movie.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- As a user, I would like to see photos and names of the cast of the selected movie.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- As a user, I would like to see a summary of the movie selected.
 
-### `npm run eject`
+### Post MVP Stretch Goals
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- As a user, I would like to be able to access more details on the actor such as age, birthplace, biography, etc.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- As a user, I would like to be able to have tv shows included in my search and/or filmography list.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- As a user, I would like to be able to filter the actor's filmography list by genre.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## API Attribution:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[The Movie Database API](https://developers.themoviedb.org/3)

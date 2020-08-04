@@ -57,6 +57,10 @@ p {
 	color: var(--mainFocusColor);
 }
 
+.searchBarLanding {
+	display: none;
+}
+
 input {
 	color: white;
 	background-color: #2d2d2d;
@@ -90,6 +94,10 @@ button {
 }
 
 @media (min-width: 800px) {
+	.searchBarLanding {
+		display: inline;
+	}
+
 	.h1Title {
 		text-align: left;
 		margin: 33px 33px 33px 30px;
