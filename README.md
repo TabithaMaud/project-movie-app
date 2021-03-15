@@ -42,7 +42,9 @@ The emphasis on this app is to focus on finding out the cast and what other movi
 
 ## Getting Started:
 
-Check it out! Fork, clone and run the application.
+Fork and clone this repo to your local machine.
+Run ```npm i``` to install the depencies.
+Run ```npm start``` to start the application.
 
 ## Contribution Guidelines:
 
