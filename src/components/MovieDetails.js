@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import noImage from '../images/no-image.jpeg';
 
 class MovieDetails extends Component {
 	render() {
@@ -8,7 +9,7 @@ class MovieDetails extends Component {
 					src={
 						this.props.poster
 							? this.props.imageUrl + this.props.poster
-							: 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg'
+							: noImage
 					}
 					alt={this.props.title}
 					key={this.props.id}

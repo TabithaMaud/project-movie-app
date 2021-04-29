@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import noImage from '../images/no-image.jpeg';
 
 class ActorDetails extends Component {
 	render() {
@@ -9,7 +10,7 @@ class ActorDetails extends Component {
 					src={
 						this.props.info.profile_path
 							? this.props.imageUrl + this.props.info.profile_path
-							: 'https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg'
+							: noImage
 					}
 					alt={this.props.info.name}
 				/>
