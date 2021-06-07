@@ -1,68 +1,74 @@
 .movieActorsList {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 3rem;
-	align-items: end;
-	padding: 0 var(--padding) var(--padding) var(--padding);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 3rem;
+  align-items: end;
+  padding: 0 var(--padding) var(--padding) var(--padding);
 }
 
 .movieActorsList img {
-	width: 100%;
+  width: 100%;
 }
 
 .movieDetails {
-	display: grid;
-	text-align: center;
-	padding: 20px;
+  display: grid;
+  text-align: center;
+  padding: 20px;
 }
 
 .movieDetails img {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .movieOverview {
-	text-align: center;
+  text-align: center;
 }
 
 .movieOverview h1 {
-	margin: 0;
-	font-size: 2em;
-	color: var(--mainFocusColor);
+  margin: 0;
+  font-size: 2em;
+  color: var(--mainFocusColor);
 }
 
 .movieOverview p {
-	margin: 0;
+  margin: 0;
 }
 
 .movieOverview div {
-	margin-top: 2em;
-	font-size: 14px;
+  margin-top: 2em;
+  font-size: 14px;
 }
 
 .actorResult {
-	padding: 10px;
-	border: 1px solid var(--mainFocusColor);
-	border-radius: 3px;
+  padding: 10px;
+  border: 1px solid var(--mainFocusColor);
+  border-radius: 3px;
 }
 
 .actorResult:hover {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.remove-favs {
+  background-color: white;
+  border: 1px solid var(--mainFocusColor);
+  color: var(--mainFocusColor);
 }
 
 @media (min-width: 800px) {
-	.movieDetails {
-		margin: 0 auto 60px auto;
-		grid-template-columns: 1fr, 3fr;
-		max-width: 720px;
-	}
+  .movieDetails {
+    margin: 0 auto 60px auto;
+    grid-template-columns: 1fr, 3fr;
+    max-width: 720px;
+  }
 
-	.movieActorsList {
-		grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
-	}
+  .movieActorsList {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
+  }
 
-	.movieOverview {
-		grid-column: 2;
-		text-align: left;
-		padding-left: 30px;
-	}
+  .movieOverview {
+    grid-column: 2;
+    text-align: left;
+    padding-left: 30px;
+  }
 }
