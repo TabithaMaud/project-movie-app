@@ -24,7 +24,7 @@ class SearchBar extends Component {
     const key = process.env.REACT_APP_MOVIE_API_KEY;
 
     const success = (res) => (res.ok ? res.json() : Promise.resolve({}));
-
+ 
     const page1 = fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${searchString}&page=1`
     ).then(success);
