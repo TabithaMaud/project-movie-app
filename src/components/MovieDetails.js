@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import noImage from "../images/no-image.jpeg";
 
 function MovieDetails({ movie, imageUrl, favorites, getFavorites }) {
+  const [movieSaved, setMovieSaved] = useState(false);
+
   useEffect(() => {
     if (localStorage.getItem("myFavMovies")) {
       const data = JSON.parse(localStorage.getItem("myFavMovies"));
@@ -27,6 +29,7 @@ function MovieDetails({ movie, imageUrl, favorites, getFavorites }) {
         localStorage.setItem("myFavMovies", JSON.stringify(favorites));
       }
     }
+    setMovieSaved(true);
   };
 
   return (
@@ -40,9 +43,13 @@ function MovieDetails({ movie, imageUrl, favorites, getFavorites }) {
         <h1>{movie.title}</h1>
         <p>{movie.date}</p>
         <div>{movie.overview}</div>
-        <button id={movie.id} onClick={handleClick}>
-          Add to favs
-        </button>
+        {!movieSaved ? (
+          <button onClick={handleClick}>Add to favs</button>
+        ) : (
+          <button className="remove-favs" onClick={handleClick}>
+            Remove From Favs
+          </button>
+        )}
       </div>
     </section>
   );

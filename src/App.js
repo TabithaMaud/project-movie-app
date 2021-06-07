@@ -118,7 +118,12 @@ class App extends Component {
             <Route
               path="/favorites"
               render={() => {
-                return <FavPage favorites={this.state.favorites} />;
+                return (
+                  <FavPage
+                    favorites={this.state.favorites}
+                    getFavorites={this.getFavorites}
+                  />
+                );
               }}
             />
           </div>
